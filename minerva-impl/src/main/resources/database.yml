@@ -1,0 +1,6 @@
+database:
+  url: 'jdbc:postgresql://127.0.0.1/teste'
+  user: 'root'
+  password: '12345'
+  dialect: 'org.hibernate.dialect.PostgreSQL92Dialect'
+  driver-class-name: 'org.postgresql.Driver'
