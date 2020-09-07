@@ -53,6 +53,10 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>rayzr-repo</id>
+            <url>https://cdn.rawgit.com/Rayzr522/maven-repo/master/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -73,6 +77,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.6</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.rayzr522</groupId>
+            <artifactId>jsonmessage</artifactId>
+            <version>1.2.1</version>
         </dependency>
         <dependency>
             <groupId>br.com.craftlife</groupId>

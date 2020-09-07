@@ -5,7 +5,7 @@
   <artifactId>minerva-impl</artifactId>
   <name>minerva</name>
   <version>3.1.0</version>
-  <description>Implementação do módulo de minerva</description>
+  <description>Implementação da minerva</description>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <resources>
@@ -65,6 +65,10 @@
     <repository>
       <id>jitpack.io</id>
       <url>https://jitpack.io</url>
+    </repository>
+    <repository>
+      <id>rayzr-repo</id>
+      <url>https://cdn.rawgit.com/Rayzr522/maven-repo/master/</url>
     </repository>
   </repositories>
   <dependencies>
