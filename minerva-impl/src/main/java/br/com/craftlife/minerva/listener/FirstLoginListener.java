@@ -1,5 +1,6 @@
 package br.com.craftlife.minerva.listener;
 
+import br.com.craftlife.eureka.loader.types.EurekaListener;
 import br.com.craftlife.eureka.server.ServerManager;
 import br.com.craftlife.minerva.model.FirstLogin;
 import br.com.craftlife.minerva.repository.FirstLoginRepository;
@@ -8,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+@EurekaListener
 public class FirstLoginListener implements Listener {
 
     @Inject

@@ -2,10 +2,8 @@ package br.com.craftlife.minerva;
 
 import br.com.craftlife.eureka.module.EurekaModule;
 import br.com.craftlife.eureka.server.ServerManager;
-import br.com.craftlife.minerva.listener.FirstLoginListener;
 import br.com.craftlife.minerva.service.HookService;
 import br.com.craftlife.minerva.util.CommandUtil;
-import br.com.craftlife.minerva.util.FancyUtil;
 import com.google.inject.Inject;
 import org.bukkit.Bukkit;
 
@@ -17,12 +15,6 @@ public class MinervaModule extends EurekaModule {
 
     @Inject
     private CommandUtil commandUtil;
-
-    @Inject
-    private FancyUtil fancyUtil;
-
-    @Inject
-    private FirstLoginListener firstLoginListener;
 
     @Inject
     private HookService hookService;
@@ -47,4 +39,5 @@ public class MinervaModule extends EurekaModule {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         hookService.initialize();
     }
+
 }
