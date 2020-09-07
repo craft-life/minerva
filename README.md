@@ -50,10 +50,11 @@ public class MinervaHomeModule  {
 
 }
 
+```
+
 the system automatically loads and records all events with the `@EurekaListener` annotation and all commands that extends `basecommand`
 
 
-```
 ### Creating commands
 
 To create a command, just create a class similar to this example:
