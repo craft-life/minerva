@@ -39,15 +39,68 @@ Then, make sure the dependency is in your `pom.xml`:
     <scope>provided</scope>
 </dependency>
 ```
-To create a module, just define in the main class that it inherits the `EurekaModule` class and have the annotation `@WithParent`:
+
+
+
+to create a module define the `module` annotation with the parameter of the module name:
 
 ```java
-@WithParent(MinervaModule.class)
-public class TemplateModule extends EurekaModule {
+@Module("home")
+public class MinervaHomeModule  {
 
-    @Override
-    public void init() {
-        // Comando executado quando o módulo for devidamente ativado
+}
+
+the system automatically loads and records all events with the `@EurekaListener` annotation and all commands that extends `basecommand`
+
+
+```
+### Creating commands
+
+To create a command, just create a class similar to this example:
+
+```java
+@CommandAlias("res|residence|resadmin")
+public class ResidenceCommand extends BaseCommand {
+
+    @Default
+    @Subcommand("list")
+    @Syntax("<+tag> [page] or [page]")
+    @CommandCompletion("@residencelist")
+    @Description("Lists all of your or another players residences.")
+    public static void onList(Player player, String[] args) {
+        if (args.length == 0) {
+            EmpireUser user = EmpireUser.getUser(player);
+
+            Util.sendMsg(player, "&bYou currently have &a" + user.numRes +
+                "&b/&a" + user.maxRes + "&b Residences.");
+
+            Residences.listGlobalResidences(player);
+        } else {
+            if (args[0].startsWith("+")) {
+                int page = (args.length == 2 && NumUtil.isInteger(args[1])) ? Integer.parseInt(args[1]) : 1;
+                TagManager.listTaggedResidences(player, args[0].substring(1), page);
+            } else {
+                Residences.listGlobalResidences(player, args[0]);
+            }
+        }
+    }
+}
+```
+
+More examples are available in [ACF](https://github.com/aikar/commands).
+
+
+### Creating listeners
+
+To create a listener, just create a class similar to this example:
+
+```java
+@EurekaListener
+public class FirstLoginListener implements Listener {
+
+    @EventHandler
+    public void onJoin(PlayerJoinEvent e) {
+    // your code here
     }
 
 }
