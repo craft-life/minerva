@@ -106,3 +106,4 @@ public class FirstLoginListener implements Listener {
 
 }
 ```
+full module example here [minerva-home](https://github.com/craft-life/minerva-home)
