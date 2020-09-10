@@ -6,7 +6,7 @@
 
     <groupId>br.com.craftlife</groupId>
     <artifactId>minerva</artifactId>
-    <version>3.1.0</version>
+    <version>3.2.0</version>
     <description>Plugin Baseado no Eureka</description>
     <packaging>pom</packaging>
 

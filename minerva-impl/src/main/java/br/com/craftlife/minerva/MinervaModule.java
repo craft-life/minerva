@@ -9,7 +9,6 @@ import org.bukkit.Bukkit;
 
 public class MinervaModule extends EurekaModule {
 
-
     @Inject
     private ServerManager serverManager;
 
@@ -21,14 +20,10 @@ public class MinervaModule extends EurekaModule {
 
     @Override
     public void configure() {
+        this.saveDefaultConfig();
         easySetup();
-        commandUtil.unregisterCommands(
-                "tell", "a", "gamemode", "clear", "give", "about", "restart", "spigot", "reload", "rl", "msg", "help",
-                "?", "ver", "w", "version", "", "w", "tp", "list", "plugins", "pl", "god", "ungod"
-        );
+        commandUtil.unregisterCommands();
     }
-
-
 
     @Override
     public void init() {

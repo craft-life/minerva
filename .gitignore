@@ -4,4 +4,4 @@
 .project
 *.iml
 target
-/minerva-module-impl/dependency-reduced-pom.xml
+dependency-reduced-pom.xml
