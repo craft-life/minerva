@@ -1,0 +1,11 @@
+unregister-commands:
+  - 'restart'
+  - 'reload'
+  - 'rl'
+  - 'msg'
+  - '?'
+  - 'ver'
+  - 'w'
+  - 'version'
+  - 'plugins'
+  - 'pl'

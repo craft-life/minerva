@@ -3,9 +3,11 @@ package br.com.craftlife.minerva.util;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import br.com.craftlife.eureka.injector.config.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.SimpleCommandMap;
@@ -16,8 +18,15 @@ import com.google.inject.Singleton;
 @Singleton
 public class CommandUtil {
 
-	private final Map<String, Entry<Method, Object>> commandMap = new HashMap<String, Entry<Method, Object>>();
+	private final Map<String, Entry<Method, Object>> commandMap = new HashMap<>();
 	private CommandMap map = new SimpleCommandMap(null);
+
+	@Config("unregister-commands")
+	private List<String> unregisterCommands;
+
+	public void unregisterCommands() {
+		unregisterCommands(unregisterCommands.toArray(new String[0]));
+	}
 
 	public void unregisterCommands(String... commands) {
 		if (Bukkit.getServer() != null && Bukkit.getServer().getPluginManager() instanceof SimplePluginManager) {
